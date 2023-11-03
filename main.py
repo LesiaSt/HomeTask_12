@@ -1,6 +1,7 @@
 import os
 import string
-from list_film import films_titles,films_awards
+import json
+from list_film import films_titles,films_awards,ganres,films_data
 
 #Task 1.
 #Hide, as created the dir
@@ -61,50 +62,79 @@ for key, value in selected_awards.items():
 print(new_selected_awards)
 # print(os.listdir())
 
-for dir, awards in new_selected_awards.items():
-    print(dir)
-    list_new_path = os.path.join(location, dir)
-    if not os.path.exists(list_new_path):
-        os.makedirs(list_new_path)
-    for award in awards:
-        award_name = award["award_name"]
-        award_type = award["award"]
-
-        first_letter = award_name[0].upper()
-        award_directory = os.path.join(list_new_path, first_letter)
-        if not os.path.exists(award_directory):
-            os.makedirs(award_directory)
-
-        file_name = os.path.join(award_directory, f'{award_name}.txt')
-        with open(file_name, mode="w", encoding="utf-8") as file:
-            file.write('')
+# for dir, awards in new_selected_awards.items():
+#     print(dir)
+#     list_new_path = os.path.join(location, dir)
+#     if not os.path.exists(list_new_path):
+#         os.makedirs(list_new_path)
+#     for award in awards:
+#         award_name = award["award_name"]
+#         award_type = award["award"]
+#
+#         first_letter = award_name[0].upper()
+#         award_directory = os.path.join(list_new_path, first_letter)
+#         if not os.path.exists(award_directory):
+#             os.makedirs(award_directory)
+#
+#         file_name = os.path.join(award_directory, f'{award_name}.txt')
+#         with open(file_name, mode="w", encoding="utf-8") as file:
+#             file.write('')
 
 # #Task 6.In the file with the name of each award, transfer all the names of the nominations
 # # of this (award) award. ExampleVES Award File:
 print(os.getcwd())
 
 awards_by_name = {}
-for dir, awards in new_selected_awards.items():
-    list_new_path = os.path.join(location, dir)
+# for dir, awards in new_selected_awards.items():
+#     list_new_path = os.path.join(location, dir)
+#
+#     if not os.path.exists(list_new_path):
+#         os.makedirs(list_new_path)
+#
+#     for award in awards:
+#         award_name = award["award_name"]
+#         award_type = award["award"]
+#
+#         if award_name not in awards_by_name:
+#             awards_by_name[award_name] = []
+#         awards_by_name[award_name].append(award_type)
+#         # print(award_type)
+#         first_letter = award_name[0].upper()
+#         award_directory = os.path.join(list_new_path, first_letter)
+#
+#         with open(os.path.join(award_directory, f'{award_name}.txt'),
+#                   mode="w", encoding="utf-8") as file:
+#             for each_award in awards_by_name[award_name]:
+#                 file.write(f'{each_award}\n')
 
-    if not os.path.exists(list_new_path):
-        os.makedirs(list_new_path)
 
-    for award in awards:
-        award_name = award["award_name"]
-        award_type = award["award"]
+#Hometask_13
+#Step 1.
+ganres_dict = json.loads(ganres)
+print(ganres_dict)
 
-        if award_name not in awards_by_name:
-            awards_by_name[award_name] = []
-        awards_by_name[award_name].append(award_type)
-        # print(award_type)
-        first_letter = award_name[0].upper()
-        award_directory = os.path.join(list_new_path, first_letter)
+#Step 2.
+os.chdir("..")
+# os.getcwd()
+# os.makedirs("Ganres_List")
+os.chdir("Ganres_List")
+print(os.getcwd())
+# for each in ganres_dict["results"]:
+#     os.makedirs(each["genre"])
 
-        with open(os.path.join(award_directory, f'{award_name}.txt'),
-                  mode="w", encoding="utf-8") as file:
-            for each_award in awards_by_name[award_name]:
-                file.write(f'{each_award}\n')
+#Step 3.
+import csv
+location_13 = os.getcwd()
+print(location_13)
+
+columns = ["title", "year", "rating", "type", "genres"]
+
+for ganre in os.listdir():
+    new_location = os.path.join(location,ganre)
+    with open (new_location, "w", newline= "") as csv_file:
+        create = csv.DictWriter(csv_file, fieldnames=columns)
+        # create.writeheader()
+
 
 
 

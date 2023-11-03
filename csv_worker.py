@@ -1,5 +1,9 @@
 import csv
-from list_film import films_awards
-# from pprint import pprints as pp
+from list_film import ganres
+from pprint import pprint as pp
 
-pp(films_awards)
+print(type(ganres))
+# new_csv = open("fims_data.csv", "w")
+# writer = csv.DictWriter(new_csv, fieldnames=films_awards[0].keys())
+# writer.writerow(films_awards)
+# csv_file.close()
