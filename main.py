@@ -129,14 +129,33 @@ print(location_13)
 
 columns = ["title", "year", "rating", "type", "genres"]
 
-for ganre in os.listdir():
-    new_location = os.path.join(location,ganre)
-    with open (new_location, "w", newline= "") as csv_file:
-        create = csv.DictWriter(csv_file, fieldnames=columns)
-        # create.writeheader()
+# for ganre in os.listdir():
+#     new_location = os.path.join(location_13,ganre,"film.csv")
+#     print(new_location)
+#     with open (new_location, "w", newline= "") as csv_file:
+#         create = csv.DictWriter(csv_file, fieldnames=columns)
+#         create.writeheader()
 
+#Step 4.
+location_13 = os.getcwd()
+print(os.getcwd())
 
+for film in films_data:
+    title = film['title']
+    year = film['year']
+    rating = film['rating']
+    movie_type = film['type']
+    genres = ', '.join([g_list['genre'] for g_list in film['gen']])
 
+    for g_list in film['gen']:
+        genre = g_list ['genre']
+
+        new_file_path= os.path.join(location_13, genre, "film.csv")
+        with open(new_file_path, mode='a', newline='',encoding='utf-8') as file_csv:
+            writer = csv.writer(file_csv)
+            # if os.stat(csv_file_path).st_size == 0:
+            #     writer.writerow(['title', 'year', 'rating', 'type', 'genres'])
+            writer.writerow([title, year, rating, movie_type, genres])
 
 
 
