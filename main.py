@@ -137,26 +137,39 @@ columns = ["title", "year", "rating", "type", "genres"]
 #         create.writeheader()
 
 #Step 4.
-location_13 = os.getcwd()
+# location_13 = os.getcwd()
+# print(os.getcwd())
+#
+# for film in films_data:
+#     title = film['title']
+#     year = film['year']
+#     rating = film['rating']
+#     movie_type = film['type']
+#     genres = ', '.join([g_list['genre'] for g_list in film['gen']])
+#
+#     for g_list in film['gen']:
+#         genre = g_list ['genre']
+#
+#         new_file_path= os.path.join(location_13, genre, "film.csv")
+#         with open(new_file_path, mode='a', newline='',encoding='utf-8') as file_csv:
+#             writer = csv.writer(file_csv)
+#             # if os.stat(csv_file_path).st_size == 0:
+#             #     writer.writerow(['title', 'year', 'rating', 'type', 'genres'])
+#             writer.writerow([title, year, rating, movie_type, genres])
+#
+
+#Task 1-2
+print(os.getcwd())
+os.chdir("..")
 print(os.getcwd())
 
-for film in films_data:
-    title = film['title']
-    year = film['year']
-    rating = film['rating']
-    movie_type = film['type']
-    genres = ', '.join([g_list['genre'] for g_list in film['gen']])
-
-    for g_list in film['gen']:
-        genre = g_list ['genre']
-
-        new_file_path= os.path.join(location_13, genre, "film.csv")
-        with open(new_file_path, mode='a', newline='',encoding='utf-8') as file_csv:
-            writer = csv.writer(file_csv)
-            # if os.stat(csv_file_path).st_size == 0:
-            #     writer.writerow(['title', 'year', 'rating', 'type', 'genres'])
-            writer.writerow([title, year, rating, movie_type, genres])
-
+# os.makedirs("video_manager")
+os.chdir("video_manager")
+location_15 = os.getcwd()
+with open(os.path.join(location_15,"media_player.py"), "w") as file:
+    file.write("")
+with open(os.path.join(location_15,"films_worker.py"), "w") as file:
+    file.write("")
 
 
 
