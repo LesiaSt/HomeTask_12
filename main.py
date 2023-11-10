@@ -166,13 +166,25 @@ print(os.getcwd())
 # os.makedirs("video_manager")
 os.chdir("video_manager")
 location_15 = os.getcwd()
-with open(os.path.join(location_15,"media_player.py"), "w") as file:
-    file.write("")
-with open(os.path.join(location_15,"films_worker.py"), "w") as file:
-    file.write("")
+# with open(os.path.join(location_15,"media_player.py"), "w") as file:
+#     file.write("")
+# with open(os.path.join(location_15,"films_worker.py"), "w") as file:
+#     file.write("")
 
 
-
+#Task 5
+print(os.getcwd())
+os.chdir("..")
+print(os.getcwd())
+# os.makedirs("film_player/Film_storage")
+os.chdir("film_player/Film_storage")
+# print(os.getcwd())
+#
+# list_characters = string.ascii_uppercase
+# print(list_characters)
+#
+# for word in list_characters:
+#     os.makedirs(os.path.join(os.getcwd(),str(word)))
 
 
 
