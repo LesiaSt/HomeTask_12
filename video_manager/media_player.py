@@ -1,3 +1,4 @@
+
 class MediaPlayer:
     def __init__(self, name, video_link, duration):
         self.name = name
@@ -13,6 +14,7 @@ class MediaPlayer:
             self.playing = True
         else:
             print(f"{self.name} is already playing")
+
     def pause(self):
         if self.playing:
             print(f"Pausing {self.name} at {self.current_time} seconds")
@@ -34,7 +36,8 @@ class MediaPlayer:
             print("Invalid quality option")
 
 if __name__ == "__main__":
-    my_media_player = MediaPlayer(name="Sample Video", video_link="example.com/video", duration=120)
+    my_media_player = MediaPlayer(name="Catch Kaidasha", video_link="https://www.youtube.com/watch?v=4rLWSU7lUro",
+                                  duration=120)
     my_media_player.play()
     my_media_player.pause()
     my_media_player.save_last_time()
